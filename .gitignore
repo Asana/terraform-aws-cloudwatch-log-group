@@ -1,0 +1,12 @@
+# Support vi users even though they should be using emacs.
+*.swp
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
