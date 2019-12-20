@@ -1,4 +1,4 @@
-# `terraform-cloudwatch-log-group`
+# `terraform-aws-cloudwatch-log-group`
 
 This module is for creating a CloudWatch log group.
 
