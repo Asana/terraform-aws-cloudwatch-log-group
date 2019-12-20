@@ -1,14 +1,13 @@
 locals {
   name        = "/aws/aes/domains/simple/foo-logs"
   environment = "staging"
-
 }
 
 module "simple" {
   source = "../"
 
-  name             = locals.name
-  environment      = locals.environment
+  name             = local.name
+  environment      = local.environment
   retention_period = "7"
 
   custom_tags = {
