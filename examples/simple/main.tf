@@ -4,13 +4,13 @@ locals {
 }
 
 module "simple" {
-  source = "../"
+  source = "../.."
 
   name             = local.name
   environment      = local.environment
   retention_period = "7"
 
   custom_tags = {
-    DomainName = locals.name
+    DomainName = local.name
   }
 }
