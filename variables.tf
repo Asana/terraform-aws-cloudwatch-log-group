@@ -8,6 +8,11 @@ variable "environment" {
   type        = string
 }
 
+variable "service" {
+  description = "The service that this log group is associated with"
+  type        = string
+}
+
 variable "retention_period" {
   description = "How long the log group should retain logs (in days)."
   default     = "30"
