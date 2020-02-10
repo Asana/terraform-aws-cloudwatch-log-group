@@ -11,58 +11,75 @@ An example deployable log group can be found in the [examples/simple](examples/s
 
 The main item to consider when using this module is how long you need to retain logs for, we default to 30 days, but if you're using this module to send logs somewhere else (i.e. Elasticsearch) you should consider a much shorter retention period.
 
+## How are the docs generated?
+
+Manually, something like this:
+
+```
+terraform-docs md document . >> README.md
+# and edit out the old stuff
+```
+
 ## Variables
 
-<table>
-<tr><th>Name</th><th>Description</th><th>Type</th><th>Default</th> <th>Required</th></tr>
-<tr>
-<td>name</td>
-<td>The name of the CloudWatch log group - this will need to be unique.</td>
-<td>
+### Required Variables
 
-`string`</td>
-<td>
+The following variables are required:
 
-`-`</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>enviroment</td>
-<td>The environment that this log group will live in.</td>
-<td>
+#### environment
 
-`string`</td>
-<td>
+Description: The environment that this log group will be in.
 
-`-`</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>retention_period</td>
-<td>The number of days that logs should be retained for.</td>
-<td>
+Type:
+`string`
 
-`string`</td>
-<td>
+#### name
 
-`"30"`</td>
-<td>no</td>
-</tr>
-<td>custom_tags</td>
-<td>A mapping of custom tags to add to the generated resources.</td>
-<td>
+Description: The name of the log group.
 
-`map(string)`</td>
-<td>
+Type:
+`string`
 
-`{}`</td>
-<td>no</td>
-</tr>
-</table>
-              
+#### service
+
+Description: The service that this log group is associated with
+
+Type:
+`string`
+
+### Optional Variables
+
+The following variables are optional (have default values):
+
+#### custom\_tags
+
+Description: A mapping of custom tags to add to the generated resources.
+
+Type:
+`map(string)`
+
+Default:
+`{}`
+
+#### retention\_period
+
+Description: How long the log group should retain logs (in days).
+
+Type:
+`string`
+
+Default:
+`"30"`
+
 ## Outputs
-              
-| Name | Description |
-|------|-------------|
-| log\_group\_arn | The ARN of the log group |
-              
+
+The following outputs are exported:
+
+#### log\_group\_arn
+
+Description: The ARN of the log group that we created.
+
+#### log\_group\_name
+
+Description: The name of the log group we created
+

@@ -1,5 +1,6 @@
 locals {
-  name        = "/aws/aes/domains/simple/foo-logs"
+  name        = "/aws/development/simple"
+  service     = "development"
   environment = "staging"
 }
 
@@ -7,6 +8,7 @@ module "simple" {
   source = "../.."
 
   name             = local.name
+  service          = local.service
   environment      = local.environment
   retention_period = "7"
 
